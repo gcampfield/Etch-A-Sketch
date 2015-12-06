@@ -1,0 +1,176 @@
+$red: #e74c3c;
+$clouds: #ecf0f1;
+$gold: #f1c40f;
+$white: #ffffff;
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+$sspace: 20px;
+$mspace: 50px;
+$lspace: 60px;
+
+@keyframes backandforth {
+  0% { left: 0px; }
+  25% { left: -10px; }
+  75% { left: 10px; }
+  100% { left: 0; }
+}
+
+#switch {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding: 5px 10px 0;
+  background: $red;
+
+  p {
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: $gold;
+    position: relative;
+    bottom: 5px;
+    margin-right: 10px;
+  }
+
+  a {
+    width: 40px;
+    height: 20px;
+    padding: 2px;
+    display: inline-block;
+    position: relative;
+    background: $white;
+    border-radius: 11px;
+    transition: all .5s ease;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      background: $gold;
+      position: absolute;
+      left: 2;
+      transition: all .5s ease;
+    }
+  }
+
+  &.on {
+    a {
+      background: $gold;
+    }
+
+    a:after {
+      left: 22px;
+      background: $white;
+    }
+  }
+}
+
+#toy {
+  position: relative;
+  width: calc(100% - #{$mspace * 2});
+  height: calc(100% - #{$mspace * 2});
+  padding: $mspace;
+  background: $red;
+
+  &.joystick {
+    .title {
+      text-align: left;
+    }
+  }
+
+  &.erasing {
+    animation: backandforth 0.1s infinite;
+  }
+
+  .screen {
+    background: $clouds;
+    width: 100%;
+    height: calc(100% - #{$lspace + $sspace});
+  }
+
+  .title {
+    font-family: "Lobster";
+    margin-top: 32px;
+    text-align: center;
+    font-size: 36px;
+    color: $gold;
+  }
+
+  .control {
+    width: $lspace;
+    height: $lspace;
+    border-radius: 50%;
+    margin-top: $sspace;
+    background: $white;
+    position: absolute;
+
+    &.left {
+      left: $mspace;
+    }
+
+    &.right {
+      right: $mspace;
+    }
+
+    &.joystick {
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  $sspace: 10px;
+  $mspace: 25px;
+  $lspace: 35px;
+
+  #toy {
+    width: calc(100% - #{$mspace * 2});
+    height: calc(100% - #{$mspace * 2});
+    padding: $lspace $mspace $mspace;
+
+    .screen {
+      height: calc(100% - #{$lspace + $sspace});
+    }
+
+    .title {
+      margin-top: 12px;
+      font-size: 20px;
+    }
+
+    .control {
+      width: $lspace;
+      height: $lspace;
+      margin-top: $sspace;
+
+      &.left {
+        left: $mspace;
+      }
+
+      &.right {
+        right: $mspace;
+      }
+    }
+  }
+}

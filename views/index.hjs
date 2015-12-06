@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link href="//fonts.googleapis.com/css?family=Lobster|Open+Sans:800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  </head>
+  <body>
+    <div id="messages">
+
+    </div>
+    <div id="switch" class="off">
+      <p class="label">Joystick Control</p><a></a>
+    </div>
+    <div id="toy" class="etch-a-sketch">
+      <canvas id="screen" class="screen"></canvas>
+      <div id="normal-controls">
+        <div class="control left"></div>
+        <div class="control right"></div>
+      </div>
+      <div id="joystick-controls" class="hidden">
+        <div class="control joystick"></div>
+      </div>
+      <div class="title">Etch-a-Sketch</div>
+    </div>
+
+    <script type="text/javascript" src="/js/index.js"></script>
+  </body>
+</html>

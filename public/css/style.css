@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+@-webkit-keyframes backandforth {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: -10px;
+  }
+  75% {
+    left: 10px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes backandforth {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: -10px;
+  }
+  75% {
+    left: 10px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+#switch {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding: 5px 10px 0;
+  background: #e74c3c;
+}
+
+#switch p {
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  color: #f1c40f;
+  position: relative;
+  bottom: 5px;
+  margin-right: 10px;
+}
+
+#switch a {
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  display: inline-block;
+  position: relative;
+  background: #ffffff;
+  border-radius: 11px;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+
+#switch a:after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #f1c40f;
+  position: absolute;
+  left: 2;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+
+#switch.on a {
+  background: #f1c40f;
+}
+
+#switch.on a:after {
+  left: 22px;
+  background: #ffffff;
+}
+
+#toy {
+  position: relative;
+  width: -webkit-calc(100% - 100px);
+  width: calc(100% - 100px);
+  height: -webkit-calc(100% - 100px);
+  height: calc(100% - 100px);
+  padding: 50px;
+  background: #e74c3c;
+}
+
+#toy.joystick .title {
+  text-align: left;
+}
+
+#toy.erasing {
+  -webkit-animation: backandforth 0.1s infinite;
+          animation: backandforth 0.1s infinite;
+}
+
+#toy .screen {
+  background: #ecf0f1;
+  width: 100%;
+  height: -webkit-calc(100% - 80px);
+  height: calc(100% - 80px);
+}
+
+#toy .title {
+  font-family: "Lobster";
+  margin-top: 32px;
+  text-align: center;
+  font-size: 36px;
+  color: #f1c40f;
+}
+
+#toy .control {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 20px;
+  background: #ffffff;
+  position: absolute;
+}
+
+#toy .control.left {
+  left: 50px;
+}
+
+#toy .control.right {
+  right: 50px;
+}
+
+#toy .control.joystick {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 700px) {
+  #toy {
+    width: -webkit-calc(100% - 50px);
+    width: calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+    padding: 35px 25px 25px;
+  }
+  #toy .screen {
+    height: -webkit-calc(100% - 45px);
+    height: calc(100% - 45px);
+  }
+  #toy .title {
+    margin-top: 12px;
+    font-size: 20px;
+  }
+  #toy .control {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+  }
+  #toy .control.left {
+    left: 25px;
+  }
+  #toy .control.right {
+    right: 25px;
+  }
+}
